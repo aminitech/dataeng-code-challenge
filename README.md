@@ -1,61 +1,66 @@
 # Data Engineer Technical Challenge
 
-## Context
-Amini is building a **Retrieval-Augmented Generation (RAG)** system for ingesting documents, extracting content, storing it in a structured form, and making it available for LLM-powered queries. Your challenge is to implement a simplified version of this pipeline.
+## 🚀 Overview
+For this challenge, we’re building a **Retrieval-Augmented Generation (RAG)** system to handle document ingestion, extract meaningful content, store it in structured formats, and make it queryable using LLMs.  
 
-The goal is **not** to build a production-ready system, but to demonstrate your ability to:
-- Write clean and modular code in Python.
-- Design and document scalable data pipelines.
-- Integrate modern AI capabilities (LLMs).
-- Communicate decisions, trade-offs, and potential improvements.
+This challenge is a **simplified version** of that workflow. It’s not about building a production system — it’s about showing us how you think, code, and design scalable solutions.
 
-⏱️ Estimated time: ~3 hours for a senior engineer.
+We want to see your ability to:
+- Write clean, modular Python code.
+- Design and explain scalable data pipelines.
+- Integrate with modern AI tools (LLMs).
+- Communicate your decisions and trade-offs clearly.
 
----
-
-### Part 1 – Implementation (Code)
-Implement a simplified pipeline that:
-
-1. **Ingestion**: Accepts one or more PDF files as input.  
-2. **Processing**: Extracts and cleans text (basic normalization, splitting into chunks).  
-3. **Storage**: Saves the chunks in a structured format (e.g., JSON, CSV, SQLite, or Postgres).  
-4. **Query Interface**: Enables the user to ask a question and retrieve relevant chunks using a **LLM integration**:  
-   - You may use a hosted API (e.g., OpenAI, Anthropic, etc.) or a **local LLM runtime** (e.g., [Ollama](https://ollama.ai/)).  
-   - Document the setup and steps so we can reproduce your solution on our side.  
-
-👉 Mocking is allowed where needed, but **at least one working LLM call** (local or API-based) should be demonstrated.
+⏱️ Timebox: Around **3 hours** (for a senior engineer).
 
 ---
 
-### Part 2 – Architecture & Scalability
-Deliver a simple diagram + explanation of how this pipeline could be scaled:
+## 🛠️ Part 1 – Implementation (Code)
+Build a simple pipeline with the following steps:
+
+1. **Ingestion** → Accept one or more PDF files as input.  
+2. **Processing** → Extract and clean the text (basic normalization, chunking).  
+3. **Storage** → Save the chunks in a structured format (JSON, CSV, SQLite, or Postgres).  
+4. **Query Interface** → Allow a user to ask a question and retrieve relevant chunks using an **LLM integration**:  
+   - Use either a hosted API (OpenAI, Anthropic, etc.) or a local LLM runtime ([Ollama](https://ollama.ai/)).  
+   - Document the setup so we can reproduce your solution.  
+
+👉 Mocking is acceptable where needed, but please include **at least one real LLM call** (API or local).
+
+---
+
+## 🏗️ Part 2 – Architecture & Scalability
+Provide a simple **diagram + explanation** of how you’d scale this pipeline:
 - Handling thousands of documents in parallel.  
-- Using orchestration tools (e.g., Airflow) to schedule/monitor.  
-- Leveraging cloud storage and data warehouses (e.g., AWS S3, Redshift, BigQuery).  
-- Exposing the query system as an API (e.g., FastAPI).  
+- Using orchestration tools (e.g., Airflow) for scheduling/monitoring.  
+- Integrating with cloud storage & warehouses (AWS S3, Redshift, BigQuery, etc.).  
+- Exposing the query system via an API (e.g., FastAPI).  
 
 ---
 
-### Part 3 – Documentation & Reflection
-Provide a short README or design note covering:
-- What you implemented and what you mocked.  
+## 📝 Part 3 – Documentation & Reflection
+Alongside your code, add a short README or design note explaining:
+- What you actually implemented vs. what you mocked.  
 - Setup instructions so we can run your solution locally.  
-- Possible improvements with more time (e.g., embeddings search, knowledge graph integration, caching).  
-- Trade-offs and reasoning behind your technical choices.  
+- Improvements you’d make with more time (e.g., embeddings, knowledge graph, caching).  
+- The reasoning behind your technical decisions.  
 
 ---
 
-## Evaluation Criteria
-- **Code quality**: clarity, modularity, basic error handling, tests if possible.  
-- **Engineering practices**: data pipeline design, scalability considerations, reproducibility.  
-- **Architecture thinking**: ability to explain design choices and future extensions.  
-- **Communication**: clarity of documentation and explanation of trade-offs.  
+## ✅ What We’re Looking For
+- **Code quality** → Clear, modular, with error handling and (if possible) simple tests.  
+- **Data engineering best practices** → Thoughtful ETL/pipeline design, scalability, reproducibility.  
+- **Architecture thinking** → Ability to explain design choices and extensions.  
+- **Communication** → Clear documentation, easy-to-follow explanations.  
 
 ---
 
-## Deliverables
-- Code implementation (in a GitHub repo or zip file).  
-- A README (like this) updated with your notes.  
-- Architecture diagram (can be an image or a simple draw.io / mermaid diagram).  
+## 📦 Deliverables
+Please submit:
+- Your **code implementation** (in a GitHub repo or as a zip file).  
+- A **README** (like this one) updated with your notes.  
+- An **architecture diagram** (image, PDF, or link to draw.io / mermaid).  
 
-Good luck – we’re excited to see your solution!
+---
+
+Good luck — we’re excited to see your solution! ✨
