@@ -1,0 +1,34 @@
+# Security Scan
+#
+# Runs Semgrep (SAST -> Semgrep Cloud) and, on pull requests, an AI Security
+# Review that consolidates the Semgrep SARIF + a Trivy/Grype dependency scan +
+# a security-persona review of the diff, posts inline + summary comments and a
+# Check Run, and gates the merge on Critical/High findings.
+#
+# Secrets (via `secrets: inherit`): SEMGREP_APP_TOKEN, AWS_BEARER_TOKEN_BEDROCK.
+# Make "Security Scan / ai-security-review" a required check to block merges.
+# Reusable workflow: aminitech/.github/.github/workflows/reusable-security-scan.yaml
+name: Security Scan
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    uses: aminitech/.github/.github/workflows/reusable-security-scan.yaml@main
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: write
+      security-events: write
+    with:
+      gate-threshold: high
+    secrets: inherit
